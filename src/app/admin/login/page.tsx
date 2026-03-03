@@ -35,8 +35,8 @@ export default function AdminLoginPage() {
 
   return (
     <section className="section page-top">
-      <div className="container" style={{ maxWidth: "560px" }}>
-        <div className="frame card">
+      <div className="container admin-login-wrap">
+        <div className="frame card admin-login-card">
           <p className="kicker">Admin CRM</p>
           <h1 style={{ fontSize: "2rem" }}>Prihlaseni klienta</h1>
           <p className="muted" style={{ marginBottom: "1rem" }}>

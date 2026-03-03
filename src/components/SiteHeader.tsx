@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { LanguageSwitcher } from "@/components/LanguageSwitcher";
 import { Locale, localePath } from "@/lib/i18n";
 
@@ -18,6 +18,17 @@ export function SiteHeader({ locale }: SiteHeaderProps) {
   const [open, setOpen] = useState(false);
   const t = NAV_LABELS[locale];
   const close = () => setOpen(false);
+
+  useEffect(() => {
+    close();
+  }, [pathname]);
+
+  useEffect(() => {
+    document.body.style.overflow = open ? "hidden" : "";
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [open]);
 
   const links = [
     { href: localePath(locale, "/"),           label: t.home      },
@@ -46,13 +57,15 @@ export function SiteHeader({ locale }: SiteHeaderProps) {
         <button
           className="nav-toggle"
           aria-label={t.menu}
+          aria-expanded={open}
+          aria-controls="site-nav"
           onClick={() => setOpen((v) => !v)}
         >
           {open ? "✕" : "☰"}
         </button>
 
         {/* Nav */}
-        <nav className={`nav ${open ? "open" : ""}`}>
+        <nav id="site-nav" className={`nav ${open ? "open" : ""}`}>
           {links.map((item) => (
             <Link
               key={item.href}
@@ -74,6 +87,7 @@ export function SiteHeader({ locale }: SiteHeaderProps) {
         </nav>
 
       </div>
+      {open ? <button className="nav-backdrop" aria-label="Close menu" onClick={close} /> : null}
     </header>
   );
 }

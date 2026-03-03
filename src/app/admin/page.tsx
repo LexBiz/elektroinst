@@ -35,16 +35,7 @@ export default async function AdminPage({ searchParams }: AdminPageProps) {
   return (
     <section className="section page-top">
       <div className="container">
-        <div
-          style={{
-            display: "flex",
-            justifyContent: "space-between",
-            alignItems: "center",
-            gap: "1rem",
-            marginBottom: "1.5rem",
-            flexWrap: "wrap",
-          }}
-        >
+        <div className="admin-toolbar">
           <div>
             <p className="kicker">Admin CRM</p>
             <h1 style={{ fontSize: "2.1rem", marginBottom: "0.5rem" }}>
@@ -59,7 +50,7 @@ export default async function AdminPage({ searchParams }: AdminPageProps) {
           </form>
         </div>
 
-        <div className="grid grid-2" style={{ alignItems: "start" }}>
+        <div className="grid grid-2 admin-grid" style={{ alignItems: "start" }}>
           <article className="frame card">
             <h3 style={{ marginBottom: "0.9rem" }}>Pridat novou pozici</h3>
             <form action="/api/admin/vacancies" method="post">
@@ -105,22 +96,14 @@ export default async function AdminPage({ searchParams }: AdminPageProps) {
             {vacancies.length === 0 ? (
               <p className="muted">Zatim nejsou zadne aktivni pozice.</p>
             ) : (
-              <div style={{ display: "grid", gap: "0.8rem" }}>
+              <div className="admin-card-list">
                 {vacancies.map((vacancy) => (
                   <div
                     key={vacancy.id}
                     className="card"
                     style={{ background: "var(--surface-2)" }}
                   >
-                    <div
-                      style={{
-                        display: "flex",
-                        justifyContent: "space-between",
-                        alignItems: "center",
-                        gap: "0.8rem",
-                        flexWrap: "wrap",
-                      }}
-                    >
+                    <div className="admin-row">
                       <div>
                         <strong>{vacancy.titleCs}</strong>
                         <p className="muted">
@@ -150,20 +133,11 @@ export default async function AdminPage({ searchParams }: AdminPageProps) {
         </div>
 
         <article className="frame card" style={{ marginTop: "1.2rem" }}>
-          <div
-            style={{
-              display: "flex",
-              justifyContent: "space-between",
-              alignItems: "center",
-              gap: "0.8rem",
-              flexWrap: "wrap",
-              marginBottom: "0.9rem",
-            }}
-          >
+          <div className="admin-row" style={{ marginBottom: "0.9rem" }}>
             <h3 style={{ marginBottom: 0 }}>
               Prichozi zadosti z formulare ({submissions.length})
             </h3>
-            <div style={{ display: "flex", gap: "0.45rem" }}>
+            <div className="admin-filters">
               <Link
                 href={submissionSort === "newest" ? "/admin" : "/admin?sort=newest"}
                 className={`btn btn-sm ${submissionSort === "newest" ? "btn-primary" : "btn-outline"}`}
@@ -181,22 +155,14 @@ export default async function AdminPage({ searchParams }: AdminPageProps) {
           {sortedSubmissions.length === 0 ? (
             <p className="muted">Zatim nejsou zadne zadosti.</p>
           ) : (
-            <div style={{ display: "grid", gap: "0.8rem" }}>
+            <div className="admin-card-list">
               {sortedSubmissions.map((row) => (
                 <div
                   key={row.id}
                   className="card"
                   style={{ background: "var(--surface-2)" }}
                 >
-                  <div
-                    style={{
-                      display: "flex",
-                      justifyContent: "space-between",
-                      alignItems: "center",
-                      gap: "0.8rem",
-                      flexWrap: "wrap",
-                    }}
-                  >
+                  <div className="admin-entry-head">
                     <p>
                       <strong>{row.fullName}</strong> · {row.phone} · {row.email}
                     </p>
