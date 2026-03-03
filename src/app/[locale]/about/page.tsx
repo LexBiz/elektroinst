@@ -11,8 +11,8 @@ export async function generateMetadata({ params }: AboutProps): Promise<Metadata
   return {
     title: uk ? "Про нас | ELEKTROINST" : "O nas | ELEKTROINST",
     description: uk
-      ? "Elektroinst Group s.r.o. — чеська компанія з електромонтажу та проєктування. Власний автопарк, сертифіковані фахівці."
-      : "Elektroinst Group s.r.o. — česká firma pro elektroinstalace a projektování. Vlastní vozový park, certifikovaní specialisté.",
+      ? "ELEKTROINSTGROUP S.R.O. — чеська компанія з електромонтажу та проєктування. Власний автопарк, сертифіковані фахівці."
+      : "ELEKTROINSTGROUP S.R.O. — česká firma pro elektroinstalace a projektování. Vlastní vozový park, certifikovaní specialisté.",
   };
 }
 
@@ -43,7 +43,8 @@ export default async function AboutPage({ params }: AboutProps) {
           <div className="logo-showcase-text reveal">
             <p className="kicker">{uk ? "Про нас" : "O nás"}</p>
             <h1>
-              {uk ? "Elektroinst Group s.r.o." : "Elektroinst Group s.r.o."}
+              ELEKTROINST<em style={{ fontStyle: "normal", color: "var(--brand)" }}>GROUP</em>
+              <span style={{ display: "block", fontSize: "clamp(0.9rem, 2vw, 1.1rem)", fontWeight: 700, letterSpacing: "0.18em", color: "var(--muted)", marginTop: "0.3rem" }}>S.R.O.</span>
             </h1>
             <p className="lead">
               {uk
@@ -52,8 +53,8 @@ export default async function AboutPage({ params }: AboutProps) {
             </p>
             <p style={{ color: "var(--muted)", lineHeight: 1.75, fontSize: "0.97rem" }}>
               {uk
-                ? "Elektroinst Group s.r.o. заснована в Празі (Praha 10 — Pitkovice). Від першого проєкту до фінальної ревізії ми несемо повну відповідальність за кожен об'єкт. Власний автопарк, сертифіковані техніки й проєктанти з чинними допусками — це не слова, це наша повсякденна реальність."
-                : "Elektroinst Group s.r.o. sídlí v Praze (Praha 10 — Pitkovice). Od prvního projektu po finální revizi neseme plnou odpovědnost za každý objekt. Vlastní vozový park, certifikovaní technici a projektanti s platnými oprávněními — to není jen marketing, to je naše každodenní realita."}
+                ? "ELEKTROINSTGROUP S.R.O. заснована в Празі (Praha 10 — Pitkovice). Від першого проєкту до фінальної ревізії ми несемо повну відповідальність за кожен об'єкт. Власний автопарк, сертифіковані техніки й проєктанти з чинними допусками — це не слова, це наша повсякденна реальність."
+                : "ELEKTROINSTGROUP S.R.O. sídlí v Praze (Praha 10 — Pitkovice). Od prvního projektu po finální revizi neseme plnou odpovědnost za každý objekt. Vlastní vozový park, certifikovaní technici a projektanti s platnými oprávněními — to není jen marketing, to je naše každodenní realita."}
             </p>
             <div className="cta-row">
               <Link href={localePath(locale, "/services")} className="btn btn-primary">
@@ -68,9 +69,9 @@ export default async function AboutPage({ params }: AboutProps) {
           <div className="logo-showcase-logo reveal reveal-d2">
             <div className="logo-gold-frame">
               {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img src="/logo.jpg" alt="Elektroinst Group s.r.o." />
+              <img src="/logo.jpg" alt="ELEKTROINSTGROUP S.R.O." />
             </div>
-            <p className="logo-company-name">Elektroinst Group s.r.o.</p>
+            <p className="logo-company-name">ELEKTROINSTGROUP S.R.O.</p>
             <p className="logo-company-sub">
               {uk ? "Прага · Чехія" : "Praha · Česká republika"}
             </p>

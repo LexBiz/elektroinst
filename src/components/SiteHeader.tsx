@@ -47,10 +47,13 @@ export function SiteHeader({ locale }: SiteHeaderProps) {
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
             src="/logo.jpg"
-            alt="ELEKTROINST logo"
+            alt="ELEKTROINSTGROUP S.R.O."
             className="logo-img"
             onError={(e) => { (e.currentTarget as HTMLImageElement).style.display = "none"; }}
           />
+          <span className="logo-wordmark">
+            ELEKTROINST<em>GROUP</em>
+          </span>
         </Link>
 
         {/* Hamburger */}

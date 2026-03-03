@@ -42,8 +42,8 @@ export function SiteFooter({ locale }: SiteFooterProps) {
     <footer className="footer">
       <div className="container footer-grid">
         <div>
-          <Link href={localePath(locale, "/")} className="logo">
-            ELEKTRO<span>INST</span>
+          <Link href={localePath(locale, "/")} className="logo footer-logo-link">
+            ELEKTROINST<em style={{ fontStyle: "normal", color: "var(--brand)" }}>GROUP</em>
           </Link>
           <p className="muted">{t.desc}</p>
         </div>
@@ -76,7 +76,7 @@ export function SiteFooter({ locale }: SiteFooterProps) {
 
       <div className="container footer-bottom">
         <p>
-          © {new Date().getFullYear()} ELEKTROINST. {t.rights}
+          © {new Date().getFullYear()} ELEKTROINSTGROUP S.R.O. {t.rights}
         </p>
       </div>
     </footer>

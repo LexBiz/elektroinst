@@ -1,5 +1,5 @@
 export const company = {
-  name: "Elektroinst Group s.r.o.",
+  name: "ELEKTROINSTGROUP S.R.O.",
   street: "V Pitkovickach 11",
   cityLine: "104 00 Praha 10 - Pitkovice",
   countryCs: "Ceska republika",

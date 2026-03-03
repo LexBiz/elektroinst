@@ -207,10 +207,11 @@ p:last-child { margin-bottom: 0; }
   box-shadow: 0 0 0 2px rgba(37 99 235 / 0.5), 0 6px 20px rgba(37 99 235 / 0.2);
 }
 .logo-wordmark {
-  font-size: 1rem;
+  font-size: clamp(0.72rem, 1.8vw, 0.95rem);
   font-weight: 900;
-  letter-spacing: 0.07em;
+  letter-spacing: 0.05em;
   text-transform: uppercase;
+  line-height: 1.1;
 }
 .logo-wordmark em {
   font-style: normal;
