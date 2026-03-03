@@ -186,7 +186,7 @@ export default async function ServicesPage({ params }: ServicesProps) {
       <div className="photo-banner" style={{ height: "480px" }}>
         <div
           className="photo-banner-bg"
-          style={{ backgroundImage: "url('https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&w=1920&q=80')" }}
+          style={{ backgroundImage: "url('https://images.unsplash.com/photo-1621905251189-08b45249e9d2?auto=format&fit=crop&w=1920&q=80')" }}
         />
         <div className="photo-banner-overlay" />
         <div className="container photo-banner-content" style={{ paddingTop: "calc(var(--header-h) + 2rem)" }}>
