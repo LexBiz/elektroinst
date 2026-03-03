@@ -56,22 +56,22 @@ export default async function Home({ params }: HomeProps) {
               <div className="hero-badge">
                 <span className="hero-badge-dot" />
                 {uk
-                  ? "Сертифіковані електрики · Чехія"
-                  : "Certifikovaní elektrikáři · Česká republika"}
+                  ? "Електромонтаж під ключ · вся Чехія"
+                  : "Elektroinstalace na klíč · celá ČR"}
               </div>
 
               <h1>
                 {uk ? (
-                  <>Ваша <em>електрична</em><br />інфраструктура<br />в надійних руках.</>
+                  <><em>Струм,</em><br />що живить<br />ваші плани.</>
                 ) : (
-                  <>Vaše <em>elektrická</em><br />infrastruktura<br />v těch správných rukou.</>
+                  <><em>Proud,</em><br />co pohání<br />vaše plány.</>
                 )}
               </h1>
 
               <p className="lead">
                 {uk
-                  ? "Від проєктування до довгострокового сервісу — реалізуємо все, що пов'язано з електрикою, для будинків, бізнесу та промисловості по всій Чехії."
-                  : "Od projektu po dlouhodobý servis — realizujeme vše kolem elektřiny pro domy, firmy a průmyslové provozy po celé České republice."}
+                  ? "Навіть найскладніший об'єкт ми здаємо в строк — повна відповідальність від першого проєкту до фінальної ревізії."
+                  : "I ten nejsložitější objekt předáme včas — plná odpovědnost od prvního projektu až po finální revizi."}
               </p>
 
               <div className="cta-row">
@@ -88,8 +88,8 @@ export default async function Home({ params }: HomeProps) {
               <h3>{uk ? "Чому обирають нас" : "Proč si vybrat nás"}</h3>
               <ul>
                 {(uk
-                  ? ["Сертифіковані техніки та ревізори", "Прозорий бюджет без сюрпризів", "Один партнер від проєкту до сервісу", "Виїзди по всій Чехії"]
-                  : ["Certifikovaní technici a revizoři", "Transparentní cena bez překvapení", "Jeden partner od projektu po servis", "Výjezdy po celé České republice"]
+                  ? ["Власні монтажні бригади і технагляд", "Прозорий бюджет без сюрпризів", "Один партнер від проєкту до сервісу", "Гарантія підтримки після здачі об'єкта"]
+                  : ["Vlastní montážní týmy a technický dohled", "Transparentní cena bez překvapení", "Jeden partner od projektu po servis", "Garance podpory i po předání díla"]
                 ).map((item) => (
                   <li key={item}>{item}</li>
                 ))}
@@ -107,7 +107,7 @@ export default async function Home({ params }: HomeProps) {
           { num: "350+", label: uk ? "завершених проєктів" : "dokončených projektů" },
           { num: "12",   label: uk ? "років досвіду"       : "let praxe v oboru"    },
           { num: "24/7", label: uk ? "технічна підтримка"  : "technická podpora"    },
-          { num: "100%", label: uk ? "сертифіковані спеці" : "certifikovaní specialisté" },
+          { num: "100%", label: uk ? "дотримання термінів" : "dodrzeni terminu" },
         ].map((s) => (
           <div className="stat-item" key={s.label}>
             <strong>{s.num}</strong>

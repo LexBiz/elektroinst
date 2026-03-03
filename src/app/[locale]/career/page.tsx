@@ -78,7 +78,7 @@ export default async function CareerPage({ params }: CareerProps) {
       <div className="photo-banner" style={{ height: "440px" }}>
         <div
           className="photo-banner-bg"
-          style={{ backgroundImage: "url('https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?auto=format&fit=crop&w=1920&q=80')" }}
+          style={{ backgroundImage: "url('https://images.unsplash.com/photo-1621905251189-08b45249e9d2?auto=format&fit=crop&w=1920&q=80')" }}
         />
         <div className="photo-banner-overlay" />
         <div className="container photo-banner-content" style={{ paddingTop: "calc(var(--header-h) + 2rem)" }}>

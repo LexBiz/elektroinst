@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { Geist } from "next/font/google";
-import { ScrollPalette } from "@/components/ScrollPalette";
+// Dark theme  → ScrollPalette (kept, swap back if needed)
+// Light theme → ScrollPaletteLight (active)
+import { ScrollPaletteLight as ScrollPalette } from "@/components/ScrollPaletteLight";
 import "./globals.css";
 
 const geistSans = Geist({
