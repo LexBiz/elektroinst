@@ -901,6 +901,153 @@ select option { background: #111; }
 /* (light mobile nav handled in the ≤768px responsive block) */
 
 /* ============================================
+   OUR WORKS GRID
+   ============================================ */
+.works-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+}
+.work-card {
+  position: relative;
+  border-radius: var(--radius);
+  overflow: hidden;
+  aspect-ratio: 4 / 3;
+  background: var(--surface-2);
+  cursor: pointer;
+}
+.work-card-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.5s ease;
+}
+.work-card:hover .work-card-img { transform: scale(1.06); }
+.work-card-label {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 0.6rem 0.9rem;
+  background: linear-gradient(transparent, rgba(0 0 0 / 0.72));
+  color: #fff;
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+}
+[data-theme="light"] .work-card-label {
+  background: linear-gradient(transparent, rgba(8 12 28 / 0.7));
+}
+
+/* ============================================
+   24/7 EMERGENCY BAND
+   ============================================ */
+.band-247 {
+  position: relative;
+  background: #06080f;
+  border-top: 1px solid rgba(37 99 235 / 0.2);
+  border-bottom: 1px solid rgba(37 99 235 / 0.2);
+  overflow: hidden;
+  padding: 4rem 0;
+}
+.band-247::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 60% 70% at 0% 50%, rgba(37 99 235 / 0.12), transparent),
+    radial-gradient(ellipse 40% 60% at 100% 50%, rgba(99 102 241 / 0.08), transparent);
+  pointer-events: none;
+}
+.band-247-inner {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  gap: 3rem;
+  flex-wrap: wrap;
+}
+.band-247-left { flex: 1; min-width: 260px; }
+.band-247-right {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  flex-shrink: 0;
+}
+.band-247-num {
+  font-size: clamp(4rem, 10vw, 7rem);
+  font-weight: 900;
+  line-height: 1;
+  letter-spacing: -0.04em;
+  color: #fff;
+  margin-bottom: 0.5rem;
+}
+.band-247-num span {
+  color: rgb(37 99 235);
+  display: inline-block;
+}
+.band-247-title {
+  font-size: clamp(1.2rem, 3vw, 1.8rem);
+  font-weight: 800;
+  color: #fff;
+  margin-bottom: 0.6rem;
+  letter-spacing: -0.02em;
+}
+.band-247-desc {
+  color: rgba(255 255 255 / 0.55);
+  font-size: 0.95rem;
+  line-height: 1.7;
+  max-width: 44ch;
+  margin: 0;
+}
+
+/* Big WhatsApp button */
+.btn-whatsapp {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  padding: 1.2rem 2.2rem;
+  background: #25d366;
+  color: #fff;
+  border-radius: var(--radius);
+  font-weight: 800;
+  font-size: 1.1rem;
+  text-decoration: none;
+  box-shadow: 0 8px 32px rgba(37 211 102 / 0.35), 0 0 0 0 rgba(37 211 102 / 0.4);
+  transition: transform 0.2s, box-shadow 0.2s;
+  min-width: 260px;
+  text-align: center;
+  animation: wa-pulse 2.8s ease-in-out infinite;
+}
+.btn-whatsapp svg { flex-shrink: 0; }
+.btn-whatsapp-phone {
+  font-size: 0.82rem;
+  font-weight: 600;
+  opacity: 0.85;
+  letter-spacing: 0.04em;
+}
+.btn-whatsapp:hover {
+  transform: translateY(-3px) scale(1.02);
+  box-shadow: 0 16px 40px rgba(37 211 102 / 0.45);
+  animation: none;
+}
+@keyframes wa-pulse {
+  0%, 100% { box-shadow: 0 8px 32px rgba(37 211 102 / 0.35), 0 0 0 0 rgba(37 211 102 / 0.35); }
+  50%       { box-shadow: 0 8px 32px rgba(37 211 102 / 0.35), 0 0 0 12px rgba(37 211 102 / 0); }
+}
+.btn-call-247 {
+  font-size: 0.82rem;
+  color: rgba(255 255 255 / 0.45);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+.btn-call-247:hover { color: #fff; }
+
+/* ============================================
    ADMIN
    ============================================ */
 .admin-toolbar {
@@ -1360,6 +1507,16 @@ select option { background: #111; }
   /* CTA band */
   .cta-band { padding: 3rem 0; }
 
+  /* Works grid */
+  .works-grid { grid-template-columns: repeat(2, 1fr); }
+
+  /* 24/7 band */
+  .band-247-inner { flex-direction: column; text-align: center; gap: 2rem; }
+  .band-247-left  { min-width: 0; }
+  .band-247-desc  { margin-inline: auto; }
+  .band-247-right { width: 100%; }
+  .btn-whatsapp   { width: 100%; max-width: 360px; }
+
   /* Contact page */
   .contact-form { padding: 1.2rem; }
 
@@ -1456,4 +1613,7 @@ select option { background: #111; }
   .cta-row .btn { width: 100%; }
   .btn        { padding: 0.75rem 1.2rem; font-size: 0.88rem; }
   .footer-grid { gap: 1.4rem; }
+  .works-grid  { grid-template-columns: 1fr; }
+  .band-247    { padding: 2.5rem 0; }
+  .band-247-num { font-size: 4.5rem; }
 }

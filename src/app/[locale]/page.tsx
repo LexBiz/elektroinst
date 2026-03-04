@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import { company } from "@/lib/company";
 import { isLocale, localePath } from "@/lib/i18n";
 import { VehicleImage } from "@/components/VehicleImage";
 
@@ -9,6 +10,45 @@ export default async function Home({ params }: HomeProps) {
   const { locale } = await params;
   if (!isLocale(locale)) notFound();
   const uk = locale === "uk";
+  const waPhone = company.phone.replace(/\D/g, "");
+  const waMsg247 = encodeURIComponent(
+    uk
+      ? "Dobryy den! Meni potribna ekstrena dopomoha elektryka."
+      : "Dobrý den! Potřebuji urgentní pomoc elektrikáře."
+  );
+
+  const works = [
+    {
+      img: "https://images.unsplash.com/photo-1621905251189-08b45249e9d2?auto=format&fit=crop&w=800&q=80",
+      labelCs: "Bytová elektroinstalace",
+      labelUk: "Квартирна електроінсталяція",
+    },
+    {
+      img: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&w=800&q=80",
+      labelCs: "Kabelové rozvody",
+      labelUk: "Кабельна розводка",
+    },
+    {
+      img: "https://images.unsplash.com/photo-1509391366360-2e959784a276?auto=format&fit=crop&w=800&q=80",
+      labelCs: "Fotovoltaika",
+      labelUk: "Фотовольтаїка",
+    },
+    {
+      img: "https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?auto=format&fit=crop&w=800&q=80",
+      labelCs: "Průmyslová elektrika",
+      labelUk: "Промислова електрика",
+    },
+    {
+      img: "https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=800&q=80",
+      labelCs: "Revize a dokumentace",
+      labelUk: "Ревізія та документація",
+    },
+    {
+      img: "https://images.unsplash.com/photo-1466611653911-95081537e5b7?auto=format&fit=crop&w=800&q=80",
+      labelCs: "Venkovní instalace",
+      labelUk: "Зовнішні установки",
+    },
+  ];
 
   const services = uk
     ? [
@@ -150,6 +190,41 @@ export default async function Home({ params }: HomeProps) {
       </section>
 
       {/* ═══════════════════════════════════════════
+          OUR WORKS
+      ═══════════════════════════════════════════ */}
+      <section className="section section-dark">
+        <div className="container">
+          <div className="section-head reveal">
+            <p className="kicker">{uk ? "Портфоліо" : "Portfolio"}</p>
+            <h2>{uk ? "Наші роботи" : "Naše práce"}</h2>
+            <p className="lead">
+              {uk
+                ? "Реальні об'єкти нашої команди. Фотографії будуть доповнені актуальними роботами."
+                : "Ukázky z realizací naší firmy. Fotografie budou průběžně doplňovány."}
+            </p>
+          </div>
+          <div className="works-grid">
+            {works.map((w, i) => (
+              <div
+                key={w.labelCs}
+                className={`work-card reveal reveal-d${Math.min((i % 3) + 1, 3)}`}
+              >
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src={w.img}
+                  alt={uk ? w.labelUk : w.labelCs}
+                  className="work-card-img"
+                />
+                <span className="work-card-label">
+                  {uk ? w.labelUk : w.labelCs}
+                </span>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ═══════════════════════════════════════════
           PHOTO BANNER 1 — electrician at work
       ═══════════════════════════════════════════ */}
       <div className="photo-banner">
@@ -245,6 +320,42 @@ export default async function Home({ params }: HomeProps) {
           </Link>
         </div>
       </div>
+
+      {/* ═══════════════════════════════════════════
+          24/7 EMERGENCY BAND
+      ═══════════════════════════════════════════ */}
+      <section className="band-247 reveal">
+        <div className="container band-247-inner">
+          <div className="band-247-left">
+            <div className="band-247-num">24<span>/</span>7</div>
+            <p className="band-247-title">
+              {uk ? "Аварійна бригада" : "Pohotovostní brigáda"}
+            </p>
+            <p className="band-247-desc">
+              {uk
+                ? "Вийшов автомат? Пропало світло? Коротке замикання? Виїжджаємо протягом 1 години — вдень і вночі, у будні та свята."
+                : "Vypadl jistič? Výpadek proudu? Zkrat? Vyjíždíme do 1 hodiny — ve dne i v noci, ve všední dny i o svátcích."}
+            </p>
+          </div>
+          <div className="band-247-right">
+            <a
+              href={`https://wa.me/${waPhone}?text=${waMsg247}`}
+              target="_blank"
+              rel="noreferrer"
+              className="btn-whatsapp"
+            >
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+              </svg>
+              {uk ? "Написати в WhatsApp" : "Napsat přes WhatsApp"}
+              <span className="btn-whatsapp-phone">{company.phone}</span>
+            </a>
+            <a href={`tel:${company.phone}`} className="btn-call-247">
+              {uk ? "або зателефонувати" : "nebo zavolat"} {company.phone}
+            </a>
+          </div>
+        </div>
+      </section>
 
       {/* ═══════════════════════════════════════════
           CTA BAND
