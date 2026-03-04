@@ -11,9 +11,36 @@ const geistSans = Geist({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://elektroinstgroup.cz"),
   title: "ELEKTROINST | Elektroinstalace pro domy, firmy a prumysl",
   description:
     "Moderni elektroinstalace, fotovoltaika, revize a servis po cele Ceske republice.",
+  icons: {
+    icon: [
+      { url: "/logo.jpg", type: "image/jpeg" },
+    ],
+    shortcut: ["/logo.jpg"],
+    apple: ["/logo.jpg"],
+  },
+  openGraph: {
+    title: "ELEKTROINSTGROUP S.R.O.",
+    description:
+      "Moderni elektroinstalace, fotovoltaika, revize a servis po cele Ceske republice.",
+    url: "https://elektroinstgroup.cz",
+    siteName: "ELEKTROINSTGROUP S.R.O.",
+    images: [
+      { url: "/logo.jpg", width: 512, height: 512, alt: "ELEKTROINSTGROUP S.R.O. logo" },
+    ],
+    locale: "cs_CZ",
+    type: "website",
+  },
+  twitter: {
+    card: "summary",
+    title: "ELEKTROINSTGROUP S.R.O.",
+    description:
+      "Moderni elektroinstalace, fotovoltaika, revize a servis po cele Ceske republice.",
+    images: ["/logo.jpg"],
+  },
 };
 
 export default function RootLayout({
