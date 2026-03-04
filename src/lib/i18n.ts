@@ -7,12 +7,13 @@ export function isLocale(value: string): value is Locale {
 }
 
 export function localePath(locale: Locale, path: string): string {
-  const normalized = path.startsWith("/") ? path : `/${path}`;
-  if (locale === "cs") {
-    return normalized;
+  if (!path.startsWith("/")) {
+    return `/${locale}/${path}`;
   }
-  if (normalized === "/") {
-    return "/uk";
+
+  if (path === "/") {
+    return `/${locale}`;
   }
-  return `/uk${normalized}`;
+
+  return `/${locale}${path}`;
 }

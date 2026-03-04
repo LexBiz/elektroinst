@@ -11,11 +11,9 @@ type LanguageSwitcherProps = {
 export function LanguageSwitcher({ locale }: LanguageSwitcherProps) {
   const pathname = usePathname();
   const segments = pathname.split("/").filter(Boolean);
-  const hasPrefix = segments[0] === "cs" || segments[0] === "uk";
-  const rawBase = hasPrefix ? `/${segments.slice(1).join("/")}` : pathname;
-  const basePath = rawBase === "/" ? "" : rawBase;
+  const basePath = segments.length > 1 ? `/${segments.slice(1).join("/")}` : "";
 
-  const csPath = basePath || "/";
+  const csPath = `/cs${basePath}`;
   const ukPath = `/uk${basePath}`;
 
   return (

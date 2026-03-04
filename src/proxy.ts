@@ -9,22 +9,16 @@ export function proxy(request: NextRequest) {
     pathname.startsWith("/_next") ||
     pathname.startsWith("/api") ||
     pathname.startsWith("/admin") ||
+    pathname.startsWith("/cs") ||
     pathname.startsWith("/uk") ||
     PUBLIC_FILE.test(pathname)
   ) {
     return NextResponse.next();
   }
 
-  // Canonical CS routes: hide /cs prefix in browser URL.
-  if (pathname === "/cs" || pathname.startsWith("/cs/")) {
-    const url = request.nextUrl.clone();
-    url.pathname = pathname.replace(/^\/cs/, "") || "/";
-    return NextResponse.redirect(url, 308);
-  }
-
   const url = request.nextUrl.clone();
   url.pathname = `/cs${pathname === "/" ? "" : pathname}`;
-  return NextResponse.rewrite(url);
+  return NextResponse.redirect(url);
 }
 
 export const config = {
