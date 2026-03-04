@@ -16,11 +16,9 @@ export const metadata: Metadata = {
   description:
     "Moderni elektroinstalace, fotovoltaika, revize a servis po cele Ceske republice.",
   icons: {
-    icon: [
-      { url: "/logo.jpg", type: "image/jpeg" },
-    ],
-    shortcut: ["/logo.jpg"],
-    apple: ["/logo.jpg"],
+    icon: [{ url: "/icon.png", type: "image/png" }],
+    shortcut: ["/icon.png"],
+    apple: [{ url: "/apple-icon.png", type: "image/png" }],
   },
   openGraph: {
     title: "ELEKTROINSTGROUP S.R.O.",
@@ -29,7 +27,7 @@ export const metadata: Metadata = {
     url: "https://elektroinstgroup.cz",
     siteName: "ELEKTROINSTGROUP S.R.O.",
     images: [
-      { url: "/logo.jpg", width: 512, height: 512, alt: "ELEKTROINSTGROUP S.R.O. logo" },
+      { url: "/icon.png", width: 512, height: 512, alt: "ELEKTROINSTGROUP S.R.O. logo" },
     ],
     locale: "cs_CZ",
     type: "website",
@@ -39,7 +37,7 @@ export const metadata: Metadata = {
     title: "ELEKTROINSTGROUP S.R.O.",
     description:
       "Moderni elektroinstalace, fotovoltaika, revize a servis po cele Ceske republice.",
-    images: ["/logo.jpg"],
+    images: ["/icon.png"],
   },
 };
 
