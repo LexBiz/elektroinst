@@ -907,15 +907,23 @@ select option { background: #111; }
 .works-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 1rem;
+  gap: 1.25rem;
 }
 .work-card {
-  position: relative;
   border-radius: var(--radius);
   overflow: hidden;
-  aspect-ratio: 4 / 3;
   background: var(--surface-2);
   cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  transition: box-shadow 0.3s, transform 0.3s;
+}
+.work-card:hover { transform: translateY(-4px); box-shadow: 0 12px 32px rgba(0 0 0 / 0.18); }
+.work-card-img-wrap {
+  position: relative;
+  overflow: hidden;
+  aspect-ratio: 4 / 3;
+  flex-shrink: 0;
 }
 .work-card-img {
   width: 100%;
@@ -925,21 +933,27 @@ select option { background: #111; }
   transition: transform 0.5s ease;
 }
 .work-card:hover .work-card-img { transform: scale(1.06); }
-.work-card-label {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  padding: 0.6rem 0.9rem;
-  background: linear-gradient(transparent, rgba(0 0 0 / 0.72));
-  color: #fff;
-  font-size: 0.82rem;
+.work-card-body {
+  padding: 0.9rem 1.1rem 1.1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  flex: 1;
+}
+.work-card-title {
+  font-size: 0.9rem;
   font-weight: 700;
-  letter-spacing: 0.03em;
+  line-height: 1.35;
+  color: var(--text);
 }
-[data-theme="light"] .work-card-label {
-  background: linear-gradient(transparent, rgba(8 12 28 / 0.7));
+.work-card-desc {
+  font-size: 0.78rem;
+  line-height: 1.55;
+  color: var(--text);
+  opacity: 0.65;
 }
+[data-theme="light"] .work-card { background: #fff; border: 1px solid rgba(0 0 0 / 0.08); }
+[data-theme="light"] .work-card:hover { box-shadow: 0 12px 32px rgba(0 100 200 / 0.12); }
 
 /* ============================================
    24/7 EMERGENCY BAND

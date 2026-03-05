@@ -19,34 +19,46 @@ export default async function Home({ params }: HomeProps) {
 
   const works = [
     {
+      img: "https://images.unsplash.com/photo-1621905251189-08b45249e9d2?auto=format&fit=crop&w=800&q=80",
+      titleCs: "Kompletní rekonstrukce elektro, byt 3+1 — Praha 4",
+      titleUk: "Повна реконструкція електрики, квартира 3+1 — Прага 4",
+      descCs: "Vyměnili jsme veškeré rozvody v panelovém bytě: nové kabely, zásuvky, vypínače a rozvaděč s moderními jističi. Hotovo za 2 dny.",
+      descUk: "Замінили всі проводки в панельній квартирі: нові кабелі, розетки, вимикачі і щиток з сучасними автоматами. Виконано за 2 дні.",
+    },
+    {
+      img: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&w=800&q=80",
+      titleCs: "Nová kabelová trasa v administrativní budově — Brno",
+      titleUk: "Нова кабельна траса в офісній будівлі — Брно",
+      descCs: "Položili jsme 200 m kabelových tras: silnoproud, datové rozvody a záložní napájení pro serverovnu. Práce bez výpadku provozu.",
+      descUk: "Проклали 200 м кабельних трас: силова мережа, ІТ-кабелювання та резервне живлення для серверної кімнати. Без зупинки офісу.",
+    },
+    {
+      img: "https://images.unsplash.com/photo-1621905252507-b35492cc74b4?auto=format&fit=crop&w=800&q=80",
+      titleCs: "Revize a servis výrobní haly — Praha-východ",
+      titleUk: "Ревізія та сервіс виробничого цеху — Схід Праги",
+      descCs: "Provedli jsme výchozí revizi elektroinstalace v hale 3 000 m². Nalezené závady opraveny na místě, protokol předán do 48 h.",
+      descUk: "Провели первинну ревізію електрики у цеху 3 000 м². Несправності усунуто одразу, протокол переданий замовнику протягом 48 год.",
+    },
+    {
+      img: "https://images.unsplash.com/photo-1509391366360-2e959784a276?auto=format&fit=crop&w=800&q=80",
+      titleCs: "Fotovoltaická elektrárna 12 kWp — Středočeský kraj",
+      titleUk: "Сонячна електростанція 12 кВт — Середньочеський край",
+      descCs: "Navrhli a namontovali jsme FV systém s 30 panely a bateriovým úložištěm 10 kWh. Úspora klienta přes 70 % ročních nákladů.",
+      descUk: "Спроєктували та встановили FV-систему з 30 панелями та батарейним накопичувачем 10 кВт·год. Економія клієнта — понад 70% на рік.",
+    },
+    {
+      img: "https://images.unsplash.com/photo-1593941707874-ef25b8b4a92b?auto=format&fit=crop&w=800&q=80",
+      titleCs: "Wallbox 22 kW pro elektromobil — Praha 6",
+      titleUk: "Wallbox 22 кВт для електромобіля — Прага 6",
+      descCs: "Nainstalovali jsme wallbox 22 kW se smart řízením, zesílili přívod a vystavili revizní zprávu. Vše na klíč za jeden den.",
+      descUk: "Встановили wallbox 22 кВт зі смарт-керуванням, посилили введення і видали ревізійний звіт. Все «під ключ» за один день.",
+    },
+    {
       img: "/auto.jpg",
-      labelCs: "Výjezd montážní brigády po Praze",
-      labelUk: "Виїзд монтажної бригади по Празі",
-    },
-    {
-      img: "https://images.unsplash.com/photo-1621905251189-08b45249e9d2?auto=format&fit=crop&w=1200&q=80",
-      labelCs: "Zapojení rozvaděče v komerčním objektu",
-      labelUk: "Підключення щита в комерційному об'єкті",
-    },
-    {
-      img: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&w=1200&q=80",
-      labelCs: "Nová kabelová trasa a napájecí okruhy",
-      labelUk: "Нова кабельна траса та силові лінії",
-    },
-    {
-      img: "https://images.unsplash.com/photo-1509391366360-2e959784a276?auto=format&fit=crop&w=1200&q=80",
-      labelCs: "Montáž fotovoltaických panelů na střechu",
-      labelUk: "Монтаж сонячних панелей на дах",
-    },
-    {
-      img: "https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?auto=format&fit=crop&w=1200&q=80",
-      labelCs: "Venkovní silové napojení objektu",
-      labelUk: "Зовнішнє силове підключення об'єкта",
-    },
-    {
-      img: "https://images.unsplash.com/photo-1621905252507-b35492cc74b4?auto=format&fit=crop&w=1200&q=80",
-      labelCs: "Revize a servisní kontrola elektroinstalace",
-      labelUk: "Ревізія та сервісна перевірка електромережі",
+      titleCs: "Pohotovostní výjezd — oprava pojistkové skříně, Praha 9",
+      titleUk: "Аварійний виїзд — ремонт запобіжної коробки, Прага 9",
+      descCs: "Klient volal v 22:00 — bez proudu celý dům. Výjezd do 40 minut, oprava na místě, elektřina obnovena do půlnoci.",
+      descUk: "Клієнт зателефонував о 22:00 — весь будинок без струму. Виїзд за 40 хвилин, ремонт на місці, електрика відновлена до опівночі.",
     },
   ];
 
@@ -242,18 +254,21 @@ export default async function Home({ params }: HomeProps) {
           <div className="works-grid">
             {works.map((w, i) => (
               <div
-                key={w.labelCs}
+                key={w.titleCs}
                 className={`work-card reveal reveal-d${Math.min((i % 3) + 1, 3)}`}
               >
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img
-                  src={w.img}
-                  alt={uk ? w.labelUk : w.labelCs}
-                  className="work-card-img"
-                />
-                <span className="work-card-label">
-                  {uk ? w.labelUk : w.labelCs}
-                </span>
+                <div className="work-card-img-wrap">
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img
+                    src={w.img}
+                    alt={uk ? w.titleUk : w.titleCs}
+                    className="work-card-img"
+                  />
+                </div>
+                <div className="work-card-body">
+                  <p className="work-card-title">{uk ? w.titleUk : w.titleCs}</p>
+                  <p className="work-card-desc">{uk ? w.descUk : w.descCs}</p>
+                </div>
               </div>
             ))}
           </div>
