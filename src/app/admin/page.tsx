@@ -13,15 +13,36 @@ function lines(text: string) {
 export const dynamic = "force-dynamic";
 
 type AdminPageProps = {
-  searchParams: Promise<{ sort?: string }>;
+  searchParams: Promise<{
+    sort?: string;
+    created?: string;
+    deleted?: string;
+    deletedLead?: string;
+    error?: string;
+  }>;
 };
 
 export default async function AdminPage({ searchParams }: AdminPageProps) {
   if (!(await isAdminAuthenticated())) {
     redirect("/admin/login");
   }
-  const { sort } = await searchParams;
+  const { sort, created, deleted, deletedLead, error } = await searchParams;
   const submissionSort = sort === "oldest" ? "oldest" : "newest";
+  const isSuccess = created === "1" || deleted === "1" || deletedLead === "1";
+  const successMessage =
+    created === "1"
+      ? "Pozice byla uspesne vytvorena."
+      : deleted === "1"
+        ? "Pozice byla uspesne smazana."
+        : deletedLead === "1"
+          ? "Zadost byla uspesne smazana."
+          : "";
+  const errorMessage =
+    error === "vacancy"
+      ? "Nepodarilo se ulozit pozici. Zkuste to prosim znovu."
+      : error === "submission"
+        ? "Nepodarilo se zpracovat zadost. Zkuste to prosim znovu."
+        : "";
 
   const [submissions, vacancies] = await Promise.all([
     getSubmissions(),
@@ -35,12 +56,13 @@ export default async function AdminPage({ searchParams }: AdminPageProps) {
   return (
     <section className="section page-top">
       <div className="container">
+        {isSuccess ? <p className="form-msg success admin-feedback">{successMessage}</p> : null}
+        {errorMessage ? <p className="form-msg error admin-feedback">{errorMessage}</p> : null}
+
         <div className="admin-toolbar">
           <div>
             <p className="kicker">Admin CRM</p>
-            <h1 style={{ fontSize: "2.1rem", marginBottom: "0.5rem" }}>
-              Zadosti a kariera
-            </h1>
+            <h1 className="admin-title">Zadosti a kariera</h1>
             <p className="muted">Soukroma sekce pouze pro klienta.</p>
           </div>
           <form action="/api/admin/logout" method="post">
@@ -50,9 +72,9 @@ export default async function AdminPage({ searchParams }: AdminPageProps) {
           </form>
         </div>
 
-        <div className="grid grid-2 admin-grid" style={{ alignItems: "start" }}>
+        <div className="grid grid-2 admin-grid">
           <article className="frame card">
-            <h3 style={{ marginBottom: "0.9rem" }}>Pridat novou pozici</h3>
+            <h3 className="admin-subtitle">Pridat novou pozici</h3>
             <form action="/api/admin/vacancies" method="post">
               <input type="hidden" name="intent" value="create" />
               <div className="form-grid">
@@ -90,7 +112,7 @@ export default async function AdminPage({ searchParams }: AdminPageProps) {
           </article>
 
           <article className="frame card">
-            <h3 style={{ marginBottom: "0.9rem" }}>
+            <h3 className="admin-subtitle">
               Aktivni pozice ({vacancies.length})
             </h3>
             {vacancies.length === 0 ? (
@@ -105,9 +127,9 @@ export default async function AdminPage({ searchParams }: AdminPageProps) {
                   >
                     <div className="admin-row">
                       <div>
-                        <strong>{vacancy.titleCs}</strong>
+                        <strong>{vacancy.titleCs || vacancy.titleUk || "Nova pozice"}</strong>
                         <p className="muted">
-                          {vacancy.type} · {vacancy.location}
+                          {(vacancy.type || "HPP / ICO")} · {(vacancy.location || "Ceska republika")}
                         </p>
                       </div>
                       <form action="/api/admin/vacancies" method="post">
@@ -118,9 +140,9 @@ export default async function AdminPage({ searchParams }: AdminPageProps) {
                         </button>
                       </form>
                     </div>
-                    <ul style={{ marginTop: "0.5rem", paddingLeft: "1rem" }}>
-                      {lines(vacancy.descriptionCs).map((line) => (
-                        <li key={line} style={{ listStyle: "disc" }}>
+                    <ul className="admin-vacancy-list">
+                      {lines(vacancy.descriptionCs || vacancy.descriptionUk || "").map((line, idx) => (
+                        <li key={`${vacancy.id}-${idx}`}>
                           {line}
                         </li>
                       ))}
@@ -132,9 +154,9 @@ export default async function AdminPage({ searchParams }: AdminPageProps) {
           </article>
         </div>
 
-        <article className="frame card" style={{ marginTop: "1.2rem" }}>
-          <div className="admin-row" style={{ marginBottom: "0.9rem" }}>
-            <h3 style={{ marginBottom: 0 }}>
+        <article className="frame card admin-submissions">
+          <div className="admin-row admin-submissions-head">
+            <h3 className="admin-subtitle admin-subtitle-no-gap">
               Prichozi zadosti z formulare ({submissions.length})
             </h3>
             <div className="admin-filters">
@@ -163,9 +185,11 @@ export default async function AdminPage({ searchParams }: AdminPageProps) {
                   style={{ background: "var(--surface-2)" }}
                 >
                   <div className="admin-entry-head">
-                    <p>
-                      <strong>{row.fullName}</strong> · {row.phone} · {row.email}
-                    </p>
+                    <div className="admin-contact-line">
+                      <strong>{row.fullName}</strong>
+                      <span>{row.phone}</span>
+                      <span>{row.email}</span>
+                    </div>
                     <form action="/api/admin/submissions" method="post">
                       <input type="hidden" name="id" value={row.id} />
                       <input type="hidden" name="sort" value={submissionSort} />
@@ -174,10 +198,10 @@ export default async function AdminPage({ searchParams }: AdminPageProps) {
                       </button>
                     </form>
                   </div>
-                  <p className="muted" style={{ whiteSpace: "pre-wrap", marginTop: "0.4rem" }}>
+                  <p className="muted admin-details">
                     {row.details}
                   </p>
-                  <p className="muted" style={{ fontSize: "0.8rem" }}>
+                  <p className="muted admin-meta">
                     {new Date(row.createdAt).toLocaleString("cs-CZ")} ·{" "}
                     {row.locale.toUpperCase()}
                   </p>

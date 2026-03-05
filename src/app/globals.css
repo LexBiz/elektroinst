@@ -1074,6 +1074,19 @@ select option { background: #111; }
   flex-wrap: wrap;
 }
 .admin-grid { align-items: start; }
+.admin-title {
+  font-size: 2.1rem;
+  margin-bottom: 0.5rem;
+}
+.admin-subtitle {
+  margin-bottom: 0.9rem;
+}
+.admin-subtitle-no-gap {
+  margin-bottom: 0;
+}
+.admin-feedback {
+  margin-bottom: 1rem;
+}
 .admin-card-list {
   display: grid;
   gap: 0.8rem;
@@ -1096,6 +1109,31 @@ select option { background: #111; }
   display: flex;
   flex-wrap: wrap;
   gap: 0.45rem;
+}
+.admin-vacancy-list {
+  margin-top: 0.5rem;
+  padding-left: 1rem;
+}
+.admin-vacancy-list li {
+  list-style: disc;
+}
+.admin-submissions {
+  margin-top: 1.2rem;
+}
+.admin-submissions-head {
+  margin-bottom: 0.9rem;
+}
+.admin-contact-line {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem 0.8rem;
+}
+.admin-details {
+  white-space: pre-wrap;
+  margin-top: 0.4rem;
+}
+.admin-meta {
+  font-size: 0.8rem;
 }
 .admin-login-wrap {
   max-width: 560px;
@@ -1606,6 +1644,13 @@ select option { background: #111; }
   /* Admin */
   .admin-login-wrap  { width: min(560px, calc(100% - 1rem)); }
   .admin-login-card  { padding: 1rem; }
+  .admin-title { font-size: 1.65rem; }
+  .admin-submissions-head { align-items: stretch; }
+  .admin-contact-line {
+    flex-direction: column;
+    gap: 0.2rem;
+  }
+  .admin-card-list .card { padding: 0.9rem; }
   .admin-entry-head p, .admin-row p { width: 100%; word-break: break-word; }
   .admin-entry-head .btn, .admin-row .btn, .admin-filters .btn { width: 100%; }
   .admin-filters { width: 100%; }
