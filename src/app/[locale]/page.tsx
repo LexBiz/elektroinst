@@ -19,34 +19,34 @@ export default async function Home({ params }: HomeProps) {
 
   const works = [
     {
-      img: "https://images.unsplash.com/photo-1621905251918-48416bd8575a?auto=format&fit=crop&w=1200&q=80",
-      labelCs: "Montáž zásuvek a vypínačů",
-      labelUk: "Монтаж розеток і вимикачів",
+      img: "/auto.jpg",
+      labelCs: "Výjezd montážní brigády po Praze",
+      labelUk: "Виїзд монтажної бригади по Празі",
     },
     {
-      img: "https://images.unsplash.com/photo-1621839673705-6617adf9e890?auto=format&fit=crop&w=1200&q=80",
-      labelCs: "Kabelová rozvodnice",
-      labelUk: "Кабельний щит",
+      img: "https://images.unsplash.com/photo-1621905251189-08b45249e9d2?auto=format&fit=crop&w=1200&q=80",
+      labelCs: "Zapojení rozvaděče v komerčním objektu",
+      labelUk: "Підключення щита в комерційному об'єкті",
     },
     {
-      img: "https://images.unsplash.com/photo-1555963966-b7ae5404b6ed?auto=format&fit=crop&w=1200&q=80",
-      labelCs: "Kontrola rozvaděče",
-      labelUk: "Перевірка щита",
+      img: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&w=1200&q=80",
+      labelCs: "Nová kabelová trasa a napájecí okruhy",
+      labelUk: "Нова кабельна траса та силові лінії",
     },
     {
-      img: "https://images.unsplash.com/photo-1581092335397-9583eb92d232?auto=format&fit=crop&w=1200&q=80",
-      labelCs: "Instalace osvětlení",
-      labelUk: "Монтаж освітлення",
+      img: "https://images.unsplash.com/photo-1509391366360-2e959784a276?auto=format&fit=crop&w=1200&q=80",
+      labelCs: "Montáž fotovoltaických panelů na střechu",
+      labelUk: "Монтаж сонячних панелей на дах",
     },
     {
-      img: "https://images.unsplash.com/photo-1555963966-17459c840b2d?auto=format&fit=crop&w=1200&q=80",
-      labelCs: "Revize a testování",
-      labelUk: "Ревізія та тестування",
+      img: "https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?auto=format&fit=crop&w=1200&q=80",
+      labelCs: "Venkovní silové napojení objektu",
+      labelUk: "Зовнішнє силове підключення об'єкта",
     },
     {
       img: "https://images.unsplash.com/photo-1621905252507-b35492cc74b4?auto=format&fit=crop&w=1200&q=80",
-      labelCs: "Práce v technické místnosti",
-      labelUk: "Роботи в технічній кімнаті",
+      labelCs: "Revize a servisní kontrola elektroinstalace",
+      labelUk: "Ревізія та сервісна перевірка електромережі",
     },
   ];
 
@@ -235,8 +235,8 @@ export default async function Home({ params }: HomeProps) {
             <h2>{uk ? "Наші роботи" : "Naše práce"}</h2>
             <p className="lead">
               {uk
-                ? "Реальні об'єкти нашої команди. Фотографії будуть доповнені актуальними роботами."
-                : "Ukázky z realizací naší firmy. Fotografie budou průběžně doplňovány."}
+                ? "Приклади типових робіт: монтаж щитів, кабельні траси, зовнішні підключення та сервісні ревізії."
+                : "Ukázky typických realizací: rozvaděče, kabelové trasy, venkovní napojení a servisní revize."}
             </p>
           </div>
           <div className="works-grid">
