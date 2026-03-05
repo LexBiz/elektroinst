@@ -16,8 +16,11 @@ export const metadata: Metadata = {
   description:
     "Moderni elektroinstalace, fotovoltaika, revize a servis po cele Ceske republice.",
   icons: {
-    icon: [{ url: "/icon.png", type: "image/png" }],
-    shortcut: ["/icon.png"],
+    icon: [
+      { url: "/favicon.ico", type: "image/x-icon" },
+      { url: "/icon.png", type: "image/png" },
+    ],
+    shortcut: ["/favicon.ico"],
     apple: [{ url: "/apple-icon.png", type: "image/png" }],
   },
   openGraph: {

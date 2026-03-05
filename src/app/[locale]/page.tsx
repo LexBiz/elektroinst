@@ -19,34 +19,34 @@ export default async function Home({ params }: HomeProps) {
 
   const works = [
     {
-      img: "https://images.unsplash.com/photo-1621905251189-08b45249e9d2?auto=format&fit=crop&w=800&q=80",
-      labelCs: "Bytová elektroinstalace",
-      labelUk: "Квартирна електроінсталяція",
+      img: "https://images.unsplash.com/photo-1621905251918-48416bd8575a?auto=format&fit=crop&w=1200&q=80",
+      labelCs: "Montáž zásuvek a vypínačů",
+      labelUk: "Монтаж розеток і вимикачів",
     },
     {
-      img: "https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=800&q=80",
-      labelCs: "Kabelové rozvody",
-      labelUk: "Кабельна розводка",
+      img: "https://images.unsplash.com/photo-1621839673705-6617adf9e890?auto=format&fit=crop&w=1200&q=80",
+      labelCs: "Kabelová rozvodnice",
+      labelUk: "Кабельний щит",
     },
     {
-      img: "https://images.unsplash.com/photo-1509391366360-2e959784a276?auto=format&fit=crop&w=800&q=80",
-      labelCs: "Fotovoltaika",
-      labelUk: "Фотовольтаїка",
+      img: "https://images.unsplash.com/photo-1555963966-b7ae5404b6ed?auto=format&fit=crop&w=1200&q=80",
+      labelCs: "Kontrola rozvaděče",
+      labelUk: "Перевірка щита",
     },
     {
-      img: "https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?auto=format&fit=crop&w=800&q=80",
-      labelCs: "Průmyslová elektrika",
-      labelUk: "Промислова електрика",
+      img: "https://images.unsplash.com/photo-1581092335397-9583eb92d232?auto=format&fit=crop&w=1200&q=80",
+      labelCs: "Instalace osvětlení",
+      labelUk: "Монтаж освітлення",
     },
     {
-      img: "https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=800&q=80",
-      labelCs: "Revize a dokumentace",
-      labelUk: "Ревізія та документація",
+      img: "https://images.unsplash.com/photo-1555963966-17459c840b2d?auto=format&fit=crop&w=1200&q=80",
+      labelCs: "Revize a testování",
+      labelUk: "Ревізія та тестування",
     },
     {
-      img: "https://images.unsplash.com/photo-1466611653911-95081537e5b7?auto=format&fit=crop&w=800&q=80",
-      labelCs: "Venkovní instalace",
-      labelUk: "Зовнішні установки",
+      img: "https://images.unsplash.com/photo-1621905252507-b35492cc74b4?auto=format&fit=crop&w=1200&q=80",
+      labelCs: "Práce v technické místnosti",
+      labelUk: "Роботи в технічній кімнаті",
     },
   ];
 
