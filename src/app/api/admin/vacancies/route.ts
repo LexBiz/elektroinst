@@ -1,11 +1,12 @@
 import { revalidatePath } from "next/cache";
 import { NextResponse } from "next/server";
 import { isAdminAuthenticated } from "@/lib/adminAuth";
+import { toPublicUrl } from "@/lib/requestUrl";
 import { addVacancy, removeVacancy } from "@/lib/storage";
 
 export async function POST(request: Request) {
   if (!(await isAdminAuthenticated())) {
-    return NextResponse.redirect(new URL("/admin/login", request.url), 303);
+    return NextResponse.redirect(toPublicUrl(request, "/admin/login"), 303);
   }
 
   try {
@@ -20,7 +21,7 @@ export async function POST(request: Request) {
       revalidatePath("/admin");
       revalidatePath("/cs/career");
       revalidatePath("/uk/career");
-      return NextResponse.redirect(new URL("/admin?deleted=1", request.url), 303);
+      return NextResponse.redirect(toPublicUrl(request, "/admin?deleted=1"), 303);
     }
 
     const titleCs = String(form.get("titleCs") ?? "").trim();
@@ -42,9 +43,9 @@ export async function POST(request: Request) {
     revalidatePath("/admin");
     revalidatePath("/cs/career");
     revalidatePath("/uk/career");
-    return NextResponse.redirect(new URL("/admin?created=1", request.url), 303);
+    return NextResponse.redirect(toPublicUrl(request, "/admin?created=1"), 303);
   } catch {
-    return NextResponse.redirect(new URL("/admin?error=vacancy", request.url), 303);
+    return NextResponse.redirect(toPublicUrl(request, "/admin?error=vacancy"), 303);
   }
 }
 

@@ -1,11 +1,12 @@
 import { revalidatePath } from "next/cache";
 import { NextResponse } from "next/server";
 import { isAdminAuthenticated } from "@/lib/adminAuth";
+import { toPublicUrl } from "@/lib/requestUrl";
 import { removeSubmission } from "@/lib/storage";
 
 export async function POST(request: Request) {
   if (!(await isAdminAuthenticated())) {
-    return NextResponse.redirect(new URL("/admin/login", request.url), 303);
+    return NextResponse.redirect(toPublicUrl(request, "/admin/login"), 303);
   }
 
   try {
@@ -18,13 +19,13 @@ export async function POST(request: Request) {
     }
 
     revalidatePath("/admin");
-    const url = new URL("/admin", request.url);
+    const url = toPublicUrl(request, "/admin");
     if (sort === "oldest") {
       url.searchParams.set("sort", "oldest");
     }
     url.searchParams.set("deletedLead", "1");
     return NextResponse.redirect(url, 303);
   } catch {
-    return NextResponse.redirect(new URL("/admin?error=submission", request.url), 303);
+    return NextResponse.redirect(toPublicUrl(request, "/admin?error=submission"), 303);
   }
 }
